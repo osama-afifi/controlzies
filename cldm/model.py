@@ -21,6 +21,12 @@ def load_state_dict(ckpt_path, location='cpu'):
     return state_dict
 
 
+def load_state_dict_from_model(model):
+    state_dict = get_state_dict(model)
+    print(f'Loaded state_dict from provided model')
+    return state_dict
+
+
 def create_model(config_path):
     config = OmegaConf.load(config_path)
     model = instantiate_from_config(config.model).cpu()
